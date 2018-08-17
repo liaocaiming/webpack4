@@ -5,5 +5,6 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     open: true,
-    hot: true
+    hot: true,
+    host: 'localhost'
 }

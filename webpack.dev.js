@@ -4,12 +4,29 @@ const config = require('./webpack.config')
 
 const compiler = Webpack(config);
 
-const WebpackDevServer = require('webpack-dev-server');
+// const WebpackDevServer = require('webpack-dev-server');
 
-const devServerOptions = require('./webpack.devServer');
+// const devServerOptions = require('./webpack.devServer');
 
-const server = new WebpackDevServer(compiler, devServerOptions);
+// WebpackDevServer.addDevServerEntrypoints(config, devServerOptions)
 
-server.listen(8080, '127.0.0.1', () => {
-  console.log('Starting server on http://localhost:8080');
-});
+// const server = new WebpackDevServer(compiler, devServerOptions);
+
+// const opn = require('opn');
+
+// server.listen(8080, 'localhost', () => {
+//   console.log('Starting server on http://localhost:8080');
+//   // opn('http://localhost:8080')
+// });
+
+const app = require('express')();
+
+const devMiddleware = require('webpack-dev-middleware')
+
+const hotMiddleware = require('webpack-hot-middleware');
+
+const instance = devMiddleware(compiler);
+
+app.use(instance);
+
+app.listen(9000)
