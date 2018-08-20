@@ -1,5 +1,4 @@
 function fn () {
-  console.log(323232)
-  console.log(999)
+  console.log('liaocaiming')
 }
 fn();
